@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Herdade do Seixo e Aldinha — Pebble Stone Hunting Preserve | €9,500,000</title>
-  <meta name="description" content="1,000-hectare fully gated luxury hunting estate in Alentejo, Portugal. 11 modern suites, 300+ wild boar, 400+ deer, €250K exotic animals, existing hunting contracts. Offered at €9,500,000." />
+  <title>Herdade do Seixo e Aldinha — Pebble Stone Hunting Preserve | €12,000,000</title>
+  <meta name="description" content="1,000-hectare fully gated luxury hunting estate in Alentejo, Portugal. 11 modern suites, 300+ wild boar, 400+ deer, €250K exotic animals, existing hunting contracts. Offered at €12,000,000." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -772,7 +772,7 @@
     </div>
     <div class="hero-price">
       <span class="price-label">Offered At</span>
-      <span class="price-value">€9,500,000</span>
+      <span class="price-value">€12,000,000</span>
     </div>
     <div class="scroll-indicator">
       <span>Scroll</span>
@@ -805,7 +805,7 @@
       <span class="stat-label">Exotic Animal Investment</span>
     </div>
     <div class="stat-item">
-      <span class="stat-number" data-prefix="€" data-count="9.5" data-suffix="M">0</span>
+      <span class="stat-number" data-prefix="€" data-count="12" data-suffix="M">0</span>
       <span class="stat-label">Asking Price</span>
     </div>
   </div>
@@ -822,7 +822,7 @@
       <span class="ticker-item">Existing Hunting Contracts</span>
       <span class="ticker-item">No Light · No Air · No Noise Pollution</span>
       <span class="ticker-item">Electric Gates · Security Cameras</span>
-      <span class="ticker-item">€9,500,000 · Generational Asset</span>
+      <span class="ticker-item">€12,000,000 · Generational Asset</span>
       <span class="ticker-item">1,000 Hectares · Fully Gated</span>
       <span class="ticker-item">11 Luxury Suites · Newly Renovated</span>
       <span class="ticker-item">400+ Deer · 300+ Wild Boar</span>
@@ -832,9 +832,69 @@
       <span class="ticker-item">Existing Hunting Contracts</span>
       <span class="ticker-item">No Light · No Air · No Noise Pollution</span>
       <span class="ticker-item">Electric Gates · Security Cameras</span>
-      <span class="ticker-item">€9,500,000 · Generational Asset</span>
+      <span class="ticker-item">€12,000,000 · Generational Asset</span>
     </div>
   </div>
+
+  <!-- MAP SECTION -->
+  <section id="map-section" style="background:var(--dark); padding:0; position:relative; overflow:hidden;">
+    <!-- Top label bar -->
+    <div style="padding:28px 48px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; border-bottom:1px solid rgba(196,163,90,0.12);">
+      <div>
+        <span style="font-family:var(--sans); font-size:0.6rem; font-weight:600; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:4px;">Interactive Estate Map</span>
+        <p style="font-family:var(--serif); font-size:1.5rem; font-weight:300; color:var(--white); line-height:1;">1,000 Hectares. <em style="color:var(--gold-lt);">Three Properties.</em></p>
+      </div>
+      <div style="display:flex; gap:16px; align-items:center; flex-wrap:wrap;">
+        <span style="font-family:var(--sans); font-size:0.65rem; color:rgba(255,255,255,0.4); letter-spacing:0.06em;">38°46′53″N  8°08′10″W · Arraiolos · Évora District</span>
+        <!-- ↓ Replace href with your Google My Maps share URL -->
+        <a id="openMapLink" href="https://www.google.com/maps/@38.7814,-8.1356,2800m/data=!3m1!1e3" target="_blank" rel="noopener"
+           style="font-family:var(--sans); font-size:0.65rem; font-weight:600; letter-spacing:0.15em; text-transform:uppercase;
+                  color:var(--dark); background:var(--gold); padding:10px 22px; text-decoration:none;
+                  transition:background 0.2s; white-space:nowrap;"
+           onmouseover="this.style.background='var(--gold-lt)'" onmouseout="this.style.background='var(--gold)'">
+          Open Full Map ↗
+        </a>
+      </div>
+    </div>
+    <!-- Interactive Google Maps embed — satellite + 45° tilt at estate coordinates -->
+    <div style="position:relative; width:100%; height:72vh;">
+      <iframe id="estateMapEmbed"
+        src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d6000!2d-8.1356!3d38.7814!2m3!1f60!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2spt!4v1711500000000!5m2!1sen!2spt"
+        width="100%" height="100%"
+        style="border:0; display:block;"
+        allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+      <!-- Non-interactive overlay to prevent accidental scroll-zoom; click reveals controls -->
+      <div id="mapClickShield"
+        style="position:absolute; inset:0; cursor:pointer; background:transparent;"
+        onclick="activateMap()"
+        title="Click to interact with the map">
+        <div style="position:absolute; bottom:24px; left:50%; transform:translateX(-50%);
+                    background:rgba(12,27,20,0.82); border:1px solid rgba(196,163,90,0.4);
+                    padding:10px 24px; backdrop-filter:blur(8px);" id="mapActivateHint">
+          <span style="font-family:var(--sans); font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);">
+            Click to Interact · Zoom · Explore
+          </span>
+        </div>
+      </div>
+    </div>
+    <!-- Property badge strip -->
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid rgba(196,163,90,0.12);">
+      <div style="padding:24px 32px; border-right:1px solid rgba(196,163,90,0.1); text-align:center;">
+        <span style="font-family:var(--serif); font-size:1.6rem; font-weight:300; color:var(--gold); display:block;">Herdade do Seixo</span>
+        <span style="font-family:var(--sans); font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35);">Arraiolos · Évora District</span>
+      </div>
+      <div style="padding:24px 32px; border-right:1px solid rgba(196,163,90,0.1); text-align:center;">
+        <span style="font-family:var(--serif); font-size:1.6rem; font-weight:300; color:var(--gold); display:block;">Herdade dos Besteirinhos</span>
+        <span style="font-family:var(--sans); font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35);">Mora · Évora District</span>
+      </div>
+      <div style="padding:24px 32px; text-align:center;">
+        <span style="font-family:var(--serif); font-size:1.6rem; font-weight:300; color:var(--gold); display:block;">Herdade da Aldainha</span>
+        <span style="font-family:var(--sans); font-size:0.58rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.35);">Coruche · Santarém District</span>
+      </div>
+    </div>
+  </section>
 
   <!-- OVERVIEW -->
   <section class="overview" id="overview">
@@ -1328,7 +1388,7 @@
 
     <div class="invest-cta reveal">
       <div class="invest-cta-text">
-        <h3>€9,500,000</h3>
+        <h3>€12,000,000</h3>
         <p>Asking Price · Negotiable with Qualified Offers</p>
       </div>
       <div style="display:flex; gap:16px; flex-wrap:wrap; align-items:center;">
@@ -1470,11 +1530,29 @@
     </div>
   </section>
 
+  <!-- INSTAGRAM FEED -->
+  <section style="background:var(--dark); padding:100px 80px;" id="instagram">
+    <div style="text-align:center; margin-bottom:56px;" class="reveal">
+      <span class="section-tag">Live from the Estate</span>
+      <h2 class="section-title light">Follow <em>@pebble_stone_hunting_preserve</em></h2>
+      <div class="divider center"></div>
+    </div>
+    <div id="ig-feed" style="display:grid; grid-template-columns:repeat(3,1fr); gap:3px;">
+      <div style="grid-column:span 3; text-align:center; padding:40px; color:rgba(255,255,255,0.3); font-family:var(--sans); font-size:0.8rem; letter-spacing:0.1em;">Loading Instagram…</div>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="https://www.instagram.com/pebble_stone_hunting_preserve/" target="_blank" rel="noopener" class="btn-ghost" style="color:rgba(255,255,255,0.55); border-color:rgba(255,255,255,0.2); display:inline-flex; align-items:center; gap:10px;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="var(--gold)" stroke="none"/></svg>
+        View all posts on Instagram
+      </a>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand">Pebble Stone Hunting Preserve · Herdade do Seixo e Aldinha</div>
     <div class="footer-center">
-      Alentejo, Portugal · 1,000 Hectares Fully Gated · 11 Suites · €9,500,000<br />
+      Alentejo, Portugal · 1,000 Hectares Fully Gated · 11 Suites · €12,000,000<br />
       Exclusively presented by SoldHere Real Estate · <a href="https://huntportugal.com" target="_blank" style="color:var(--gold);">huntportugal.com</a>
     </div>
     <div class="footer-right">
@@ -1508,6 +1586,44 @@
   </div>
 
   <script>
+    // ── Interactive map ───────────────────────────────────────
+    function activateMap() {
+      const shield = document.getElementById('mapClickShield');
+      const hint = document.getElementById('mapActivateHint');
+      if (shield) { shield.style.display = 'none'; }
+    }
+
+    // ── Instagram feed ────────────────────────────────────────
+    (function loadIGFeed() {
+      const feed = document.getElementById('ig-feed');
+      if (!feed) return;
+      fetch('https://api.eytan.com/api/social/instagram/page-feed?page_id=122770464254132&limit=9')
+        .then(r => r.json())
+        .then(data => {
+          const posts = data.posts || [];
+          if (!posts.length) { feed.innerHTML = '<div style="grid-column:span 3;text-align:center;padding:40px;color:rgba(255,255,255,0.3);font-family:var(--sans);font-size:0.8rem;">No posts available.</div>'; return; }
+          feed.innerHTML = posts.map((p, i) => {
+            const img = p.media_type === 'VIDEO' ? (p.thumbnail_url || p.media_url) : p.media_url;
+            const isVideo = p.media_type === 'VIDEO';
+            return `<a href="${p.permalink}" target="_blank" rel="noopener"
+              style="position:relative; display:block; aspect-ratio:1/1; overflow:hidden; background:var(--forest);">
+              <img src="${img}" alt="Pebble Stone Instagram post" loading="lazy"
+                style="width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease,filter 0.3s;"
+                onmouseover="this.style.transform='scale(1.05)';this.style.filter='brightness(1.08)'"
+                onmouseout="this.style.transform='scale(1)';this.style.filter=''"
+                onerror="this.parentElement.style.display='none'" />
+              ${isVideo ? `<div style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,0.6);border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;"><svg width="12" height="12" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>` : ''}
+              <div style="position:absolute;inset:0;background:rgba(12,27,20,0);transition:background 0.3s;"
+                onmouseover="this.style.background='rgba(12,27,20,0.35)'"
+                onmouseout="this.style.background='rgba(12,27,20,0)'"></div>
+            </a>`;
+          }).join('');
+        })
+        .catch(() => {
+          feed.innerHTML = '<div style="grid-column:span 3;text-align:center;padding:40px;color:rgba(255,255,255,0.3);font-family:var(--sans);font-size:0.8rem;">Could not load Instagram feed.</div>';
+        });
+    })();
+
     // ── Mobile menu toggle ───────────────────────────────────
     function toggleMenu() {
       const btn = document.getElementById('hamburger');
